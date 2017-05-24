@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>迷你校公司二级域名跳转管理</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<h1>迷你校公司二级域名跳转管理</h1>
+<div>
+    <form class="form-inline">
+        <button type="button" class="btn btn-info">Add</button>
+        <input type="search" class="form-control" id="keyword" name="keyword" placeholder="请输入公司关键词">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
+<div>
+    <table id="sublist" class="table table-bordered">
+        <thead>
+        <tr>
+            <th>公司名称</th>
+            <th>子域名</th>
+            <th>跳转链接</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${name}">公司名称</td>
+            <td><strong th:text="${sub}">sub</strong>.minixiao.com</td>
+            <td>ddd</td>
+            <td><a class="btn btn-link">修改</a><a class="btn btn-link">删除</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

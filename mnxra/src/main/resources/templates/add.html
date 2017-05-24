@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>菜鸟教程(runoob.com)</title>
+</head>
+<body>
+<script>
+    document.onkeydown = function()
+    {
+        if(event.keyCode==116) {
+            event.keyCode=0;
+            event.returnValue = false;
+        }
+    }
+    document.oncontextmenu = function() {event.returnValue = false;}
+</script>
+<form action="/mng/add" method="get">
+
+
+    <table>
+        <tr><td>name</td><td>  <input name ="name" type="text">  </input></td></tr>
+        <tr><td>href</td><td>  <input name ="href" type="text"> </input> </td></tr>
+        <tr><td>subdomain</td><td>  <input name="subdomain" type="text"> </input> </td></tr>
+    </table>
+          <input type="submit"> </input>
+</form>
+</body>
+</html>

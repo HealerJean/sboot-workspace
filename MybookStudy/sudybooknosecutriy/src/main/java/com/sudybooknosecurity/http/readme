@@ -1,0 +1,14 @@
+<!--应用监控-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+			<version>1.5.3.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.hateoas</groupId>
+			<artifactId>spring-hateoas</artifactId>
+			<version>0.23.0.RELEASE</version>
+		</dependency>
+
+
+		http://localhost:8080/actuator

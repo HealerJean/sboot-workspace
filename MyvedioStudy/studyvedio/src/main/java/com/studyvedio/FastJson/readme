@@ -1,0 +1,47 @@
+1.首先需要导入fastjson的依赖包
+	<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.15</version>
+	</dependency>
+
+2.fastjson 使用的时候需要让启动类集成 WebMvcConfigurerAdapter
+
+@SpringBootApplication
+public class StudyvedioApplication extends WebMvcConfigurerAdapter{
+
+3.重写WebMvcConfigurerAdapter的内部类 configureMessageConverters
+
+	/**
+	 * 1.需要先定义个convert转消息的对象
+	 * 2.添加fastjson的配置信息，比如是否要格式化返回的json数据
+	 * 3.在convert中添加配置信息
+	 * 4.将convert添加到converters中
+	 * @param converters
+	 */
+	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+		super.configureMessageConverters(converters);
+		//1需要先定义个convert转消息的对象
+		FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
+		//2.添加fastjson的配置信息，比如是否要格式化返回的json数据
+		FastJsonConfig fastJsonConfig = new FastJsonConfig();
+		fastJsonConfig.setSerializerFeatures(
+				SerializerFeature.PrettyFormat
+		);
+		//3.在convert中添加配置信息
+		fastConverter.setFastJsonConfig(fastJsonConfig);
+		//4.将convert添加到converters中
+		converters.add(fastConverter);
+	}
+
+4. User 类中添加字段Date 日期，用来验证是不是我们的fastjson起了作用
+
+  //测试fastjson的时候用到
+    //这个注释在在fastjson的包里面的 com.alibaba.fastjson.annotation.JSONField;
+    @JSONField(format = "yyyyMMddhhmmss")
+    Date createTime;
+
+5.controller 中设置date的值
+
+6.浏览器 测试结果 浏览器
+{ "age":23, "createTime":"20170330033621", "name":"HealerJean" }

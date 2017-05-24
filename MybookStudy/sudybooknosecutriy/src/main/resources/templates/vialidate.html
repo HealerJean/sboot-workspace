@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>zoo list</title>
+</head>
+<body>
+<a href='.'>首页</a>->动物列表
+<br><br>
+<div th:text="${MSG}">这里是信息提示.</div>
+<br>
+<div th:errors="${animalForm.oname}"></div>
+<div th:errors="${animalForm.ocount}"></div>
+<div th:errors="${animalForm.memo}"></div>
+<br>
+<form id="iform" th:action="@{/list.html?save}" th:method="post" th:object="${animalForm}">
+    <table border="1">
+        <tr>
+            <th>动物名称</th>
+            <th>数量</th>
+            <th>备注</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td><input type="text" name="oname" value="" th:value="*{oname}"/></td>
+            <td><input type="text" name="ocount" value="" th:value="*{ocount}"/></td>
+            <td><input type="text" name="memo" value="" th:value="*{memo}"/></td>
+            <td><input type="submit" value="添加"/></td>
+        </tr>
+    </table>
+</form>
+<hr>
+<table border="1">
+    <tr>
+        <th>序号</th>
+        <th>动物名称</th>
+        <th>数量</th>
+        <th>备注</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>大马猴</td>
+        <td>10</td>
+        <td>机灵古怪，俏皮活泼</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>大熊猫</td>
+        <td>80</td>
+        <td>体型笨重，喜欢吃竹子</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>澳洲羊驼</td>
+        <td>13</td>
+        <td>长相奇特，大国人俗称其草泥马</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>峨眉山猴</td>
+        <td>90</td>
+        <td>不怕人，有时候发贱抢游客面包吃</td>
+    </tr>
+</table>
+</body>
+<!--
+<div th:text="${MSG}">这里是信息提示.</div>，还记得前面controller的代码中我们在返回页面的model中放了一个attribute名字叫“MSG”么，对了，在这里我们就可以通过表达式th:text="${MSG}"取得其值了。thymeleaf解析这个标签的时候会将“这里是信息提示.”这个字符串替换成“MSG”对应的内容。
+<div th:errors="${animalForm.oname}"></div>，thymeleaf使用th:errors表达式可以取得错误信息的内容，${animalForm.oname}表示取得animalForm里oname字段的错误信息；如果验证oname字段时出现错误，那么在这个div里面会显示出该错误信息。
+关于thymeleaf的validate表达式详细介绍请参阅 http://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html#validation-and-error-messages
+
+好了，我们该修改的都完成了，重启tomcat进入浏览器吧，我的效果如下：
+出错的情况-->
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>更新页面</title>
+    <script type="text/javascript">
+        document.onkeydown = function()
+        {
+            if(event.keyCode==116) {
+                event.keyCode=0;
+                event.returnValue = false;
+            }
+        }
+        document.oncontextmenu = function() {event.returnValue = false;}
+
+
+            function delete(){
+                alert("haha")
+                var id = document.getElementById('id').innerHTML;
+                if (confirm("你确定要删除吗？是－选择确定，否-选择取消")){
+                    window.location.href="mng/delete/+"id;
+                }
+            };;
+
+            function update(){
+                alert("haha")
+                var id = document.getElementById('id').innerHTML;
+                if (confirm("你确定要删除吗？是－选择确定，否-选择取消")){
+                    window.location.href="mng/updateindex/+"id;
+                }
+
+        }
+    </script>
+</head>
+<body>
+<form>
+ <table>
+<tr><td>id</td>
+    <td>name</td>
+    <td>subdomain</td>
+    <td>href</td>
+    <td>createtime</td>
+    <td>删除</td>
+    <td>修改</td>
+</tr>
+     <!--/*@thymesVar id="mnxras" type="ch"*/-->
+     <tr th:each="mnxra:${mnxras}">
+         <td th:text="${mnxra.id}" id="id">   </td>
+         <td th:text="${mnxra.name}"></td>
+         <td th:text="${mnxra.subdomain}"></td>
+         <td th:text="${mnxra.href}"></td>
+         <td th:text="${mnxra.createtime}"></td>
+         <td><input type="button" onclick="update()" value="更新"></input></td>
+         <td><input type="button" onclick="delete()" value="删除"></input></td>
+
+     </tr>
+
+
+
+ </table>
+    <a href="/mng/addindex">添加新用户</a>
+</form>
+</body>
+</html>

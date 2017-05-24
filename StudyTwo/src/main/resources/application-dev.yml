@@ -1,0 +1,10 @@
+server:
+      port: 8080
+person:
+      age:  24
+      name: 赵春宇
+
+
+
+
+

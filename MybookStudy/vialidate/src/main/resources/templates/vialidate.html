@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>HealerJean 表单验证</title>
+</head>
+<body>
+<a href='.'>首页</a>->动物列表
+<br/>
+<!--
+<div th:text="${MSG}">这里是信息提示.</div>，还记得前面controller的代码中我们在返回页面的model中放了一个attribute名字叫“MSG”么，对了，在这里我们就可以通过表达式th:text="${MSG}"取得其值了。thymeleaf解析这个标签的时候会将“这里是信息提示.”这个字符串替换成“MSG”对应的内容。
+<div th:errors="${animalForm.oname}"></div>，thymeleaf使用th:errors表达式可以取得错误信息的内容，${animalForm.oname}表示取得animalForm里oname字段的错误信息；如果验证oname字段时出现错误，那么在这个div里面会显示出该错误信息。
+关于thymeleaf的validate表达式详细介绍请参阅 http://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html#validation-and-error-messages
+
+好了，我们该修改的都完成了，重启tomcat进入浏览器吧，我的效果如下：
+出错的情况-->
+<div th:text="${MSG}">这里是信息提示.</div>
+<br/>
+<div th:errors="${animalForm.oname}"></div>
+<div th:errors="${animalForm.ocount}"></div>
+<div th:errors="${animalForm.memo}"></div>
+<div th:errors="${animalForm.date}"></div>
+<form id="iform" th:action="@{/list.html}" th:method="get" th:object="${animalForm}">
+    <table border="1">
+        <tr>
+            <th>动物名称</th>
+            <th>数量</th>
+            <th>备注</th>
+            <th>日期</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td><input type="text" name="oname" value="" th:value="*{oname}"/></td>
+            <td><input type="text" name="ocount" value="" th:value="*{ocount}"/></td>
+            <td><input type="text" name="memo" value="" th:value="*{memo}"/></td>
+            <td><input type="text" name="date" value="" th:value="*{date}"/></td>
+            <td><input type="submit" value="添加"/></td>
+        </tr>
+    </table>
+</form>
+<hr/>
+</body>
+
+
+</html>

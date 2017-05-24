@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>菜鸟教程(runoob.com)</title>
+</head>
+<body>
+<form action="/mng/update" method="get">
+
+
+    <table>
+        <tr><td>id</td><td>  <input name ="id" th:value="${mnxra.id}" readonly="true"></input> </td></tr>
+        <tr><td>name</td><td>  <input name ="name" th:value="${mnxra.name}">  </input></td></tr>
+        <tr><td>href</td><td>  <input name ="href" th:value="${mnxra.href}"> </input> </td></tr>
+        <tr><td>subdomain</td><td>  <input name="subdomain" th:value="${mnxra.subdomain}"> </input> </td></tr>
+        <tr><td>createtime</td><td>  <input name ="createtime" th:value="${mnxra.createtime}" readonly="true"> </input> </td></tr>
+    </table>
+          <input type="submit"> </input>
+</form>
+</body>
+</html>

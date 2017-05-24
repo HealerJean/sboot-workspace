@@ -1,0 +1,15 @@
+spring: #spring cloud 负责提供从外部资源加载配置属性
+  application:
+    name: config    #1 在erueka server 注册的服务名 为config
+  profiles:
+    active: native #2 配置服务器使用本地
+    
+eureka:
+  instance:
+    non-secure-port: ${server.port:8888} #3 如果环境变量中有值则使用环境变量的，否则使用8888
+    metadata-map:
+      instanceId: ${spring.application.name}:${random.value} #4
+  client:
+    service-url:
+      defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/ #5
+

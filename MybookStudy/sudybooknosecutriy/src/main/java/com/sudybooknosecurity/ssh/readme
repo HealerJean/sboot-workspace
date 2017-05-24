@@ -1,0 +1,11 @@
+<!--ssh 应用监控-->
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-remote-shell -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-remote-shell</artifactId>
+			<version>1.5.3.RELEASE</version>
+		</dependency>
+
+2.然后启动 ，会获得一个秘密
+
+3.tools --> ssh 输入相关用户名和密码，书上有的

@@ -1,0 +1,35 @@
+ server:
+   port: 8082
+   context-path: /mnx
+#  1
+ #测试 yml配置文件时候用到
+
+
+#  2
+# 测试 注入的时候用到 TestOneApplication
+#server:
+#port: 8080
+#name: 张宇晋
+#age: 23
+#content: "age:${age},name:${name}"
+
+# 3
+# 添加前缀 person 用到 TestTwoPersonBean 和TestTwoPersonApplicationController
+#server:
+#      port: 8080
+#person:
+#      age:  23
+#      name: 张宇晋
+
+# 4  测试多个配置文件一起使用
+#application-dev.yml
+#application-prod.yml
+#TestTwoPersonApplicationController
+#TestTwoPersonBean
+
+#spring:
+#  profiles:
+#    active: dev
+
+
+
