@@ -34,6 +34,7 @@ public class AnimalController {
         System.out.println("动物名：" + form.getOname());
         System.out.println("数量：" + form.getOcount());
         System.out.println("备注：" + form.getMemo());
+        System.out.println("日期：" + form.getDate());
         if(result.hasErrors()){
             List<ObjectError> list = result.getAllErrors();
                 for (ObjectError error : list) {

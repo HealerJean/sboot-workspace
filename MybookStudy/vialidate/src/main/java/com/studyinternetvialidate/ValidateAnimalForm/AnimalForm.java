@@ -53,8 +53,8 @@ public class AnimalForm {
     @MyValidateMemo(message = "备注不能为空，且只能填写\"圈养\"，或者\"散养\"")
     private String memo;
 
-    @DateTimeFormat( pattern = "yyyy-MM-dd")
-//    @JsonFormat( pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+08:00")
     private Date date;
 
 
